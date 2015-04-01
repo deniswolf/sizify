@@ -49,6 +49,13 @@
 				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
 				expect(calculatedWidth).to.be.within(145, 150);
 			});
+			it('works with non-empty text and long spaces', function() {
+				var example =
+					'In all web development                                         technologies.';
+				this.setAllParams('serif', 10, 150, example);
+				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
+				expect(calculatedWidth).to.be.within(145, 150);
+			});
 		});
 
 		describe('number of lines calculation', function() {
@@ -63,6 +70,13 @@
 				this.setAllParams('serif', 10, 150, example);
 				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
 				expect(calculatedLines).to.equal(4);
+			});
+			it('works with non-empty text and long spaces', function() {
+				var example =
+					'In all web development                                         technologies.';
+				this.setAllParams('serif', 10, 150, example);
+				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
+				expect(calculatedLines).to.equal(2);
 			});
 		});
 
