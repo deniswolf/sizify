@@ -3,6 +3,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.css">
   <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="//cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/chai/2.2.0/chai.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Droid+Serif:b">
 </head>
@@ -69,6 +70,15 @@
       </div>
     </div>
   </div>
+
+  <div id="mocha"><p><a href=".">Tests</a></p></div>
+  <div id="messages"></div>
+  <div id="fixtures"></div>
+
   <script src="sizify.js"></script>
+
+  <script>mocha.setup('bdd');</script>
+  <script src="tests.js"></script>
+  <script>mocha.run();</script>
 </body>
 </html>
