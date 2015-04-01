@@ -39,7 +39,8 @@
 		describe('width calculation', function() {
 			it('works with the empty text', function() {
 				this.setAllParams('serif', 10, 150, '');
-				expect(this._sizify.widthResult.val()).to.equal('0');
+				var calculatedWidth = this._sizify.widthResult.text();
+				expect(calculatedWidth).to.equal('0');
 			});
 		});
 

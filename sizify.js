@@ -1,19 +1,5 @@
 (function($) {
 	$(document).ready(function() {
-		var style = {
-			'font-family': '',
-			'font-size': '',
-			'max-width': '',
-			'text-input': ''
-		};
-
-		function updater(el, attr, event) {
-			var data = $(this).val();
-
-			if (attr === 'text-input') return el.find('[data-sizify=text-container]').text(data);
-			style[attr] = data;
-			el.css(style);
-		};
 
 		window.Sizify = function(form) {
 			var _sizify = {};
@@ -27,6 +13,29 @@
 				changeEvent = _sizify.changeEvent = 'input propertychange',
 				widthResult = _sizify.widthResult = $(form).find('[data-sizify=width-result]'),
 				linesResult = _sizify.linesResult = $(form).find('[data-sizify=lines-result]');
+
+			var style = {
+				'font-family': '',
+				'font-size': '',
+				'max-width': '',
+				'text-input': ''
+			};
+
+			function updater(el, attr, event) {
+				var data = $(this).val();
+
+				if (attr === 'text-input') {
+					el.find('[data-sizify=text-container]').text(data);
+				} else {
+					style[attr] = data;
+					el.css(style);
+				}
+				widthResult.text(calculateWidth(textContainer));
+			}
+
+			function calculateWidth(el) {
+				return $(el).outerWidth();
+			}
 
 			fontFamily.on(changeEvent, updater.bind(fontFamily, textWrapper, 'font-family'));
 			fontSize.on(changeEvent, updater.bind(fontSize, textWrapper, 'font-size'));
