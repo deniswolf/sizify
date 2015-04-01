@@ -8,6 +8,7 @@
 				fontSize = _sizify.fontSize = $(form).find('[data-sizify=font-size]'),
 				maxWidth = _sizify.maxWidth = $(form).find('[data-sizify=max-width]'),
 				textInput = _sizify.textInput = $(form).find('[data-sizify=text-input]'),
+				escapeSpaces = _sizify.escapeSpaces = $(form).find('[data-sizify=escape-spaces]'),
 				textWrapper = _sizify.textWrapper = $(form).find('[data-sizify=text-wrapper]'),
 				textContainer = _sizify.textContainer = $(form).find('[data-sizify=text-container]'),
 				changeEvent = _sizify.changeEvent = 'input propertychange',
@@ -21,11 +22,15 @@
 				'text-input': ''
 			};
 
+			var escapeSpacesEnabled = false;
+
 			function updater(el, attr, event) {
 				var data = $(this).val();
+				var text = '';
 
 				if (attr === 'text-input') {
-					el.find('[data-sizify=text-container]').text(data);
+					text = escapeSpaces.prop('checked') ? data.replace(new RegExp(' ', 'g'), '&nbsp;') : data;
+					el.find('[data-sizify=text-container]').html(text);
 				} else {
 					style[attr] = data;
 					el.css(style);
@@ -56,7 +61,6 @@
 			fontSize.on(changeEvent, updater.bind(fontSize, textWrapper, 'font-size'));
 			maxWidth.on(changeEvent, updater.bind(maxWidth, textWrapper, 'max-width'));
 			textInput.on(changeEvent, updater.bind(textInput, textWrapper, 'text-input'));
-
 			return _sizify;
 		};
 

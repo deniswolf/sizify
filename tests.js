@@ -49,13 +49,21 @@
 				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
 				expect(calculatedWidth).to.be.within(145, 150);
 			});
-			it('works with non-empty text and long spaces', function() {
-				var example =
-					'In all web development                                         technologies.';
-				this.setAllParams('serif', 10, 150, example);
-				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
-				expect(calculatedWidth).to.be.within(145, 150);
+			describe('with enabled escaped white spaces', function() {
+				before(function() {
+					this._sizify.escapeSpaces.prop('checked', true);
+				});
+				after(function() {
+					this._sizify.escapeSpaces.prop('checked', false);
+				});
+				it('turn the long text into single line', function() {
+					var example = ' In all web development                                         technologies.';
+					this.setAllParams('serif', 10, 150, example);
+					var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
+					expect(calculatedWidth).to.be.above(200);
+				});
 			});
+
 		});
 
 		describe('number of lines calculation', function() {
@@ -71,12 +79,19 @@
 				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
 				expect(calculatedLines).to.equal(4);
 			});
-			it('works with non-empty text and long spaces', function() {
-				var example =
-					'In all web development                                         technologies.';
-				this.setAllParams('serif', 10, 150, example);
-				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
-				expect(calculatedLines).to.equal(2);
+			describe('with enabled escaped white spaces', function() {
+				before(function() {
+					this._sizify.escapeSpaces.prop('checked', true);
+				});
+				after(function() {
+					this._sizify.escapeSpaces.prop('checked', false);
+				});
+				it('turn the long text into single line', function() {
+					var example = ' In all web development                                         technologies.';
+					this.setAllParams('serif', 10, 150, example);
+					var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
+					expect(calculatedLines).to.equal(1);
+				});
 			});
 		});
 
