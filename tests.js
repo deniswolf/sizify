@@ -51,4 +51,19 @@
 			});
 		});
 
+		describe('number of lines calculation', function() {
+			it('works with the empty text', function() {
+				this.setAllParams('serif', 10, 150, '');
+				var calculatedLines = this._sizify.linesResult.text();
+				expect(calculatedLines).to.equal('0');
+			});
+			it('works with non-empty text', function() {
+				var example =
+					'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.';
+				this.setAllParams('serif', 10, 150, example);
+				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
+				expect(calculatedLines).to.be.within(3, 6);
+			});
+		});
+
 	});
