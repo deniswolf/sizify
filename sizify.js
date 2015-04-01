@@ -31,10 +31,25 @@
 					el.css(style);
 				}
 				widthResult.text(calculateWidth(textContainer));
+				linesResult.text(calculateLines(textContainer));
 			}
 
 			function calculateWidth(el) {
 				return $(el).outerWidth();
+			}
+
+			function calculateLines(el) {
+				// based on the snippet from http://jsfiddle.net/vWhd5/14/
+				var $el = $(el),
+					lh = $el.css('line-height'),
+					ws = $el.css('white-space');
+				if (lh === 'normal') {
+					$el.css('white-space', 'nowrap');
+					lh = $el.height();
+					$el.css('white-space', ws);
+				}
+
+				return Math.ceil($el.height() / parseInt(lh, 10));
 			}
 
 			fontFamily.on(changeEvent, updater.bind(fontFamily, textWrapper, 'font-family'));
