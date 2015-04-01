@@ -42,6 +42,13 @@
 				var calculatedWidth = this._sizify.widthResult.text();
 				expect(calculatedWidth).to.equal('0');
 			});
+			it('works with non-empty text', function() {
+				var example =
+					'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.';
+				this.setAllParams('serif', 10, 150, example);
+				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
+				expect(calculatedWidth).to.be.within(100, 150);
+			});
 		});
 
 	});
