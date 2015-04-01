@@ -30,5 +30,11 @@
 			});
 		});
 
+		describe('width calculation', function() {
+			it('works with the empty text', function() {
+				this.setAllParams('serif', 10, 150, '');
+				expect(this._sizify.widthResult.val()).to.equal('0');
+			});
+		});
 
 	});

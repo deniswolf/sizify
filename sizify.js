@@ -24,7 +24,9 @@
 				textInput = _sizify.textInput = $(form).find('[data-sizify=text-input]'),
 				textWrapper = _sizify.textWrapper = $(form).find('[data-sizify=text-wrapper]'),
 				textContainer = _sizify.textContainer = $(form).find('[data-sizify=text-container]'),
-				changeEvent = _sizify.changeEvent = 'input propertychange';
+				changeEvent = _sizify.changeEvent = 'input propertychange',
+				widthResult = _sizify.widthResult = $(form).find('[data-sizify=width-result]'),
+				linesResult = _sizify.linesResult = $(form).find('[data-sizify=lines-result]');
 
 			fontFamily.on(changeEvent, updater.bind(fontFamily, textWrapper, 'font-family'));
 			fontSize.on(changeEvent, updater.bind(fontSize, textWrapper, 'font-size'));
