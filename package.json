@@ -1,0 +1,13 @@
+{
+	"name": "sizify",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"start": "./node_modules/http-server/bin/http-server -a localhost ."
+	},
+	"author": "Denis Wolf",
+	"license": "MIT",
+	"dependencies": {
+		"http-server": "^0.8.0"
+	}
+}

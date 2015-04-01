@@ -1,0 +1,74 @@
+<html>
+<head>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/mocha/2.2.1/mocha.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine|Droid+Serif:b">
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+        <h2>Text Stats React.js component</h2>
+        <p></p>
+    </div>
+
+    <div class="row" id="app">
+      <div class="row" id="app">
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Font</label>
+            <div class="col-sm-10">
+              <select data-sizify="font-family" class="form-control">
+                <option value="monospace">monospace</option>
+                <option value="sans-serif">sans-serif</option>
+                <option value="serif">serif</option>
+                <option value="Tangerine">Tangerine</option>
+                <option value="Droid Serif">Droid Serif</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Font size</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input data-sizify="font-size" type="number" class="form-control">
+                <div class="input-group-addon">px</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Max width</label>
+            <div class="col-sm-10">
+              <div class="input-group">
+                <input data-sizify="max-width" type="number" class="form-control">
+                <div class="input-group-addon">px</div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 control-label">Text</label>
+          <div class="col-sm-10">
+            <textarea data-sizify="text-input" class="form-control"></textarea>
+          </div>
+        </div>
+        <div id="results">
+          <p>
+            <span>WIDTH: </span>
+            <span>0px</span>
+          </p>
+          <p>
+            <span>LINES: </span>
+            <span>1</span>
+          </p>
+        </div>
+        <div data-sizify="text-wrapper">
+          <span data-sizify="text-container"></span>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="sizify.js"></script>
+</body>
+</html>
