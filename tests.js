@@ -9,7 +9,7 @@
 				_sizify.fontFamily.val(font);
 				_sizify.fontFamily.trigger(changeEvent);
 				_sizify.fontSize.val(size);
-				_sizify.fontFamily.trigger(changeEvent);
+				_sizify.fontSize.trigger(changeEvent);
 				_sizify.maxWidth.val(width);
 				_sizify.maxWidth.trigger(changeEvent);
 				_sizify.textInput.val(text);
@@ -47,7 +47,7 @@
 					'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.';
 				this.setAllParams('serif', 10, 150, example);
 				var calculatedWidth = parseInt(this._sizify.widthResult.text(), 10);
-				expect(calculatedWidth).to.be.within(100, 150);
+				expect(calculatedWidth).to.be.within(145, 150);
 			});
 		});
 
@@ -62,7 +62,7 @@
 					'At w3schools.com you will learn how to make a website. We offer free tutorials in all web development technologies.';
 				this.setAllParams('serif', 10, 150, example);
 				var calculatedLines = parseInt(this._sizify.linesResult.text(), 10);
-				expect(calculatedLines).to.be.within(3, 6);
+				expect(calculatedLines).to.equal(4);
 			});
 		});
 
